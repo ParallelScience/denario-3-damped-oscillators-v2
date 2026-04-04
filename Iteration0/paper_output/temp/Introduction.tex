@@ -1,0 +1,20 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{graphicx} 
+
+
+\begin{document}
+
+The characterization of oscillatory systems is a foundational task in science and engineering, with applications ranging from structural health monitoring in civil engineering to the analysis of gravitational wave signals in astrophysics. The damped harmonic oscillator provides a canonical model for describing such systems, where key parameters like the angular frequency and damping rate govern the system's dynamic response, stability, and energy dissipation. Accurate estimation of these parameters from observational data is therefore essential for system identification, predictive modeling, and control design.
+
+A significant practical challenge arises from the fact that experimental time-series data are invariably contaminated by measurement noise. Traditional estimation techniques that rely on local signal features, such as identifying the amplitudes of successive peaks or the timing of zero-crossings, are particularly vulnerable to such noise. Random fluctuations can create spurious peaks, shift the apparent location of extrema, and obscure the signal's true envelope, leading to unreliable parameter estimates. This sensitivity is especially pronounced for the damping rate, a parameter encoded in the gradual decay of the signal's amplitude, which can be easily masked by even moderate levels of noise.
+
+To address the limitations of local, feature-based methods, we present a robust parameter estimation framework that leverages the entire signal trajectory. Our approach is based on fitting the analytical model of a damped harmonic oscillator directly to the complete time-series data. Under the common assumption of additive Gaussian noise, this procedure is equivalent to Maximum Likelihood Estimation. The model is described by the equation $x(t) = A \exp(-\gamma t) \cos(\omega t + \phi)$, where $\gamma$ represents the damping rate and $\omega$ is the angular frequency of oscillation. By performing a single global optimization over all available data points, our method effectively averages out random measurement noise rather than being compromised by it. This holistic approach is inherently more resilient to the high-frequency jitter that plagues local methods, as it enforces the known physical model across the full duration of the signal.
+
+In this paper, we implement and validate this full-trajectory fitting methodology. We employ a non-linear least-squares optimization algorithm, with initial parameter estimates derived from a spectral analysis of the signal to ensure convergence to a physically meaningful solution. To demonstrate the efficacy of our approach, we apply it to a dataset of simulated underdamped systems with known ground-truth parameters. We systematically evaluate the accuracy of the recovered parameters and analyze how estimation error correlates with the signal-to-noise ratio. The results confirm that this global fitting technique provides a computationally efficient, accurate, and robust alternative for characterizing underdamped systems from noisy experimental data.
+
+\end{document}
+                

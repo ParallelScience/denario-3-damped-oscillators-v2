@@ -1,0 +1,40 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{graphicx} 
+
+
+\begin{document}
+
+\subsection{Dataset}
+The methodology was validated using a synthetic dataset comprising 20 simulated underdamped harmonic oscillators. Each oscillator is represented by a discrete time-series of its displacement, $x(t)$, sampled over a 20-second interval. The data for each oscillator were generated using known ground-truth values for the natural angular frequency ($\omega$) and the damping rate ($\gamma$), allowing for a direct and quantitative assessment of parameter recovery accuracy. The time-series data for all oscillators were contaminated with additive Gaussian noise to simulate realistic experimental conditions.
+
+\subsection{Parameter estimation framework}
+Our approach is based on fitting an analytical model of a damped harmonic oscillator to the entire experimental time-series data. Under the assumption of additive Gaussian noise, this procedure is equivalent to Maximum Likelihood Estimation (MLE). The analytical model is described by the equation:
+\begin{equation}
+x(t) = A e^{-\gamma t} \cos(\omega t + \phi)
+\end{equation}
+where the four free parameters are the initial amplitude ($A$), the damping rate ($\gamma$), the angular frequency ($\omega$), and the initial phase ($\phi$).
+
+To estimate these parameters for each oscillator, we employed a non-linear least-squares optimization routine. This method minimizes the sum of the squared differences between the observed data and the model prediction across all time points. To ensure robust convergence to a physically meaningful global optimum and avoid local minima, we implemented a two-stage process.
+
+First, an initial guess for the parameter vector $(\omega_0, \gamma_0, A_0, \phi_0)$ was determined. The initial frequency, $\omega_0$, was estimated from the location of the dominant peak in the power spectral density of the signal, which was computed using a Fast Fourier Transform (FFT). The initial amplitude, $A_0$, and damping rate, $\gamma_0$, were estimated from the envelope of the signal, while the initial phase, $\phi_0$, was set to zero.
+
+Second, these initial estimates were used to seed a non-linear least-squares optimization using the Trust Region Reflective (TRF) algorithm. To guarantee the physical validity of the solution, the optimization was performed subject to the following bounds: $A > 0$, $\gamma \ge 0$, and $\omega > 0$.
+
+\subsection{Evaluation metrics}
+The performance of the parameter estimation framework was evaluated by comparing the fitted parameters ($\gamma_{\text{fit}}$, $\omega_{\text{fit}}$) against their corresponding ground-truth values ($\gamma_{\text{true}}$, $\omega_{\text{true}}$). The primary metric for accuracy was the relative error, calculated for each parameter $p$ as:
+\begin{equation}
+\text{Relative Error} = \frac{|p_{\text{fit}} - p_{\text{true}}|}{p_{\text{true}}}
+\end{equation}
+
+To investigate the method's robustness to measurement noise, we calculated the Signal-to-Noise Ratio (SNR) for each fitted trajectory. The SNR was defined as the ratio of the variance of the fitted model signal, $\hat{x}(t)$, to the variance of the residuals, $r(t) = x(t) - \hat{x}(t)$:
+\begin{equation}
+\text{SNR} = \frac{\text{Var}(\hat{x}(t))}{\text{Var}(r(t))}
+\end{equation}
+We then analyzed the correlation between the relative error in the estimated damping rate, $\gamma_{\text{fit}}$, and the calculated SNR to quantify the estimator's performance as a function of noise level.
+
+\end{document}
+                

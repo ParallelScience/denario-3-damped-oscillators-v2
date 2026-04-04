@@ -1,0 +1,64 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{graphicx} 
+
+
+\begin{document}
+
+\subsection{High-fidelity model fitting}
+
+The full-trajectory Maximum Likelihood Estimation (MLE) framework was successfully applied to the entire dataset of 20 simulated underdamped harmonic oscillators. The non-linear least-squares optimization, initialized via spectral analysis, consistently converged to a robust solution for all cases. Figure \ref{fig:image0} presents four representative examples of the fitting procedure. In each case, the best-fit model (red line) accurately captures the dynamics of the noisy time-series data (grey points), tracing both the oscillatory behavior and the exponential decay envelope over the full 20-second duration. The visual agreement between the model and the data across oscillators with different physical parameters and noise levels provides initial qualitative evidence for the method's efficacy.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{../input_files/plots/step_1_fit_summary_1_1775343995.png}
+    \caption{Representative results of the Maximum Likelihood Estimation (MLE) framework applied to four underdamped harmonic oscillators. Each panel displays the noisy time-series displacement data (grey points) alongside the best-fit model trajectory (red line) obtained via non-linear least-squares minimization. The plots visually confirm the high fidelity of the parameter recovery, showing that the model accurately captures the oscillatory dynamics and exponential decay over the full 20-second interval for systems with varying damping ratios and signal-to-noise levels.}
+    \label{fig:image0}
+\end{figure*}
+
+\subsection{Quantitative parameter recovery performance}
+
+To quantitatively assess the performance of our framework, we compared the estimated parameters with their known ground-truth values. The results are summarized in the diagnostic plots shown in Figure \ref{fig:image1}.
+
+The parity plots for both the damping rate ($\gamma$) and the natural angular frequency ($\omega$) demonstrate excellent agreement between the fitted and true values. As shown in the top row of Figure \ref{fig:image1}, the data points for both parameters cluster tightly along the identity line, indicating minimal systematic bias and high accuracy. The natural frequency $\omega$ was recovered with exceptional precision, with relative errors consistently below 0.5\% across the dataset. The damping rate $\gamma$, which is encoded in the signal's decaying amplitude and is thus more susceptible to noise, was also recovered robustly, with relative errors typically falling within a 1--3\% range.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{../input_files/plots/step_2_diagnostic_plots_1775344014.png}
+    \caption{Performance of the Maximum Likelihood Estimation framework for recovering oscillator parameters. Parity plots (top row) for the damping rate ($\gamma$) and natural frequency ($\omega$) show excellent agreement between fitted and true values, with points clustering tightly along the identity line. The bottom row shows the relative error in the estimation of $\gamma$. The error exhibits an inverse relationship with the Signal-to-Noise Ratio (SNR) (bottom left) and a slight increase as the damping ratio increases (bottom right), indicating a degradation in precision for more rapidly decaying signals.}
+    \label{fig:image1}
+\end{figure*}
+
+\subsection{Dependence on signal-to-noise ratio and damping}
+
+Our analysis further investigated how the estimation accuracy depends on the properties of the signal. The bottom-left panel of Figure \ref{fig:image1} shows the relative error in the estimated damping rate, $\gamma_{\text{fit}}$, as a function of the Signal-to-Noise Ratio (SNR). A clear inverse correlation is observed: higher SNR values correspond to lower relative errors. This result validates a key theoretical advantage of our full-trajectory fitting approach, confirming its ability to effectively average out random measurement noise over the entire signal duration. For instance, oscillators with high SNR (e.g., SNR > 500) consistently yield $\gamma$ estimates with less than 1\% error.
+
+The bottom-right panel of Figure \ref{fig:image1} explores the relationship between the relative error in $\gamma$ and the damping ratio, $\zeta = \gamma / \omega$. The results indicate a slight positive correlation, where the estimation error tends to increase for systems with higher damping ratios. This behavior is expected, as a larger damping ratio leads to a more rapid signal decay. Consequently, a smaller portion of the time-series contains oscillations with an amplitude significantly above the noise floor, reducing the amount of information available to constrain the exponential decay parameter, $\gamma$. Nevertheless, the method remains robust, with the relative error staying below 4\% even for the most heavily damped systems in our sample.
+
+Table \ref{tab:summary_metrics} provides a quantitative summary of the performance for a representative subset of the oscillators, illustrating these trends with specific examples.
+
+\begin{table*}[t]
+    \centering
+    \caption{Performance metrics for a representative subset of the oscillators. The table highlights the consistency of the MLE framework, showing the calculated Signal-to-Noise Ratio (SNR) and the relative errors for the recovered damping rate ($\gamma$) and angular frequency ($\omega$).}
+    \label{tab:summary_metrics}
+    \resizebox{0.8\textwidth}{!}{
+    \begin{tabular}{ccccc}
+    \hline
+    \hline
+    Oscillator ID & SNR & $\gamma$ Relative Error & $\omega$ Relative Error \\
+    \hline
+    1 & 630.2 & 0.0106 & 0.0000 \\
+    5 & 382.1 & 0.0019 & 0.0004 \\
+    10 & 484.8 & 0.0001 & 0.0001 \\
+    13 & 92.1 & 0.0013 & 0.0047 \\
+    17 & 118.5 & 0.0318 & 0.0066 \\
+    \hline
+    \end{tabular}
+    }
+\end{table*}
+
+\end{document}
+                

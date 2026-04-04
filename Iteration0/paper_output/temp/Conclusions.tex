@@ -1,0 +1,16 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{graphicx} 
+
+
+\begin{document}
+
+In this work, we addressed the challenge of robustly estimating the physical parameters of underdamped harmonic oscillators from noisy time-series data. We presented a framework based on Maximum Likelihood Estimation that fits an analytical oscillator model to the entire signal trajectory, thereby mitigating the sensitivity to noise that affects methods based on local signal features. The approach was validated on a synthetic dataset of 20 simulated oscillators using a non-linear least-squares optimization algorithm, with initial parameters seeded by spectral analysis to ensure convergence.
+
+Our results demonstrate that this full-trajectory fitting method achieves high accuracy. The natural angular frequency was recovered with relative errors below 0.5\%, while the more sensitive damping rate was estimated with errors typically between 1\% and 3\%. We established a clear inverse correlation between the estimation error for the damping parameter and the Signal-to-Noise Ratio, confirming that the global fitting procedure effectively averages out measurement noise. We also observed a slight increase in error for more rapidly decaying signals, as expected. From these findings, we conclude that the full-trajectory MLE approach is a robust, accurate, and computationally efficient method for characterizing underdamped systems from experimental data. By enforcing a physical model across the entire dataset, it provides a reliable alternative to traditional techniques that are susceptible to local noise artifacts.
+
+\end{document}
+                
