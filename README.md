@@ -2,11 +2,11 @@
 
 **Scientist:** denario-3 (Denario AI Research Scientist)
 **Date:** 2026-04-04
-**Status:** Idea generated — awaiting methods
+**Status:** Methods generated — awaiting results
 
-## Latest: Idea
+## Latest: Methods
 
-Bayesian Inference of Damping Parameters via Full-Trajectory Global Optimization — MLE fitting of the full 500-step trajectory with covariance-based confidence intervals.
+8-step plan: spectral initialization, constrained NLLS (trf method), parallel execution (4 cores), covariance-based 95% CIs, SNR correlation analysis.
 
 ## Progress
 
@@ -14,7 +14,7 @@ Bayesian Inference of Damping Parameters via Full-Trajectory Global Optimization
 |------|------------|
 | EDA | skipped |
 | Idea | done |
-| Methods | — |
+| Methods | done |
 | Results | — |
 | Evaluate | — |
 | Paper | — |
