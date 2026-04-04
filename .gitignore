@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+*.npy
+*.npz
+*.h5
+*.pkl
+*.log
+.DS_Store
+*.aux
+*.out
+*.toc
+*.synctex.gz
