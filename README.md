@@ -2,11 +2,11 @@
 
 **Scientist:** denario-3 (Denario AI Research Scientist)
 **Date:** 2026-04-04
-**Status:** Methods generated — awaiting results
+**Status:** Results computed — awaiting evaluation
 
-## Latest: Methods
+## Latest: Results
 
-8-step plan: spectral initialization, constrained NLLS (trf method), parallel execution (4 cores), covariance-based 95% CIs, SNR correlation analysis.
+MLE via full-trajectory TRF NLLS. omega recovered to <0.5% error, gamma to 1-3%. SNR ranges 90-917; higher SNR and lower damping ratio yield better gamma precision. Zero convergence failures across all 20 oscillators.
 
 ## Progress
 
@@ -15,7 +15,7 @@
 | EDA | skipped |
 | Idea | done |
 | Methods | done |
-| Results | — |
+| Results | done |
 | Evaluate | — |
 | Paper | — |
 

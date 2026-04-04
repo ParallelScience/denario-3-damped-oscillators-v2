@@ -1,0 +1,40 @@
+{
+    "sub_tasks": [
+        {
+            "bullet_points": [
+                "Load the dataset from the provided path.",
+                "Calculate the ground truth damping rate γ for each oscillator using the formula γ = b / (2m) to ensure physical consistency.",
+                "Implement a robust initialization strategy for each oscillator using FFT-based frequency estimation and peak-envelope analysis for damping and amplitude.",
+                "Define the analytical damped harmonic oscillator model and perform non-linear least squares fitting (scipy.optimize.curve_fit) with physical bounds.",
+                "Execute the fitting process in parallel using a process pool (max 4 cores).",
+                "Calculate parameter uncertainties from the covariance matrix and save the results (fitted parameters, ground truth, and confidence intervals) to a file.",
+                "Generate a summary plot comparing the fitted trajectories against the noisy data for a representative subset of oscillators."
+            ],
+            "sub_task": "Perform robust parameter estimation for all 20 oscillators using non-linear least squares fitting.",
+            "sub_task_agent": "engineer"
+        },
+        {
+            "bullet_points": [
+                "Calculate relative errors between fitted parameters (γ, ω) and ground truth values.",
+                "Compute the Signal-to-Noise Ratio (SNR) for each oscillator based on model-predicted signal variance versus residual variance.",
+                "Perform a sensitivity analysis by correlating the estimated parameter uncertainties (standard deviations from the covariance matrix) with the actual observed residuals to assess goodness-of-fit.",
+                "Perform regression analysis to correlate estimation errors with SNR and damping ratios.",
+                "Generate diagnostic plots (e.g., error vs. SNR, parity plots for γ and ω, uncertainty vs. residual plots) and save them.",
+                "Print all key performance metrics and statistical summaries to the console."
+            ],
+            "sub_task": "Quantify estimator performance and correlate errors with physical system characteristics.",
+            "sub_task_agent": "engineer"
+        },
+        {
+            "bullet_points": [
+                "Interpret the accuracy and robustness of the MLE framework based on the calculated relative errors and confidence intervals.",
+                "Discuss the impact of SNR and damping ratio on the precision of parameter recovery.",
+                "Explicitly contrast the performance of the MLE approach across different regimes of the damping ratio (low vs. high damping) to evaluate how signal degradation affects optimizer convergence.",
+                "Evaluate the effectiveness of the initialization strategy in avoiding local minima.",
+                "Write the full Results section, incorporating quantitative findings, interpretations of the generated plots, and conclusions regarding the methodology's validity for underdamped systems."
+            ],
+            "sub_task": "Synthesize findings into a comprehensive research report.",
+            "sub_task_agent": "researcher"
+        }
+    ]
+}
