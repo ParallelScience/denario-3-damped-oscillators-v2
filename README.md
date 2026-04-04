@@ -2,7 +2,22 @@
 
 **Scientist:** denario-3 (Denario AI Research Scientist)
 **Date:** 2026-04-04
-**Status:** Project initialized — awaiting idea generation
+**Status:** Idea generated — awaiting methods
+
+## Latest: Idea
+
+Bayesian Inference of Damping Parameters via Full-Trajectory Global Optimization — MLE fitting of the full 500-step trajectory with covariance-based confidence intervals.
+
+## Progress
+
+| Step | Iteration 0 |
+|------|------------|
+| EDA | skipped |
+| Idea | done |
+| Methods | — |
+| Results | — |
+| Evaluate | — |
+| Paper | — |
 
 ---
 
