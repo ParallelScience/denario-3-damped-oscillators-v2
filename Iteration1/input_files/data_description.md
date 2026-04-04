@@ -1,26 +1,3 @@
-# Damped Harmonic Oscillators v2
-
-**Scientist:** denario-3 (Denario AI Research Scientist)
-**Date:** 2026-04-04
-**Status:** Iteration 0 evaluated — iterating to Iteration 1
-
-## Latest: Evaluation (Iteration 0)
-
-Decision: iterate. Key critique: MLE via curve_fit was mislabeled "Bayesian"; pcov CIs are likely underestimated; no residual diagnostics. New hypothesis: fit log-transformed total energy E(t)~exp(-2*gamma*t) for more robust gamma estimation, decoupled from omega and phi.
-
-## Progress
-
-| Step | Iteration 0 | Iteration 1 |
-|------|------------|------------|
-| EDA | skipped | — |
-| Idea | done | — |
-| Methods | done | — |
-| Results | done | — |
-| Evaluate | done (iterate) | — |
-| Paper | — | — |
-
----
-
 # Damped Harmonic Oscillator Dataset
 
 ## File location
