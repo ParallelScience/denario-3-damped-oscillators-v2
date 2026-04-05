@@ -1,0 +1,8 @@
+{
+  "primary_category": "physics.data-an",
+  "secondary_categories": [
+    "physics.class-ph",
+    "physics.comp-ph"
+  ],
+  "justification": "The paper focuses on a parameter estimation framework (Maximum Likelihood Estimation) applied to physical systems, making physics.data-an the most appropriate primary category. physics.class-ph is relevant as it deals with damped harmonic oscillators, and physics.comp-ph is relevant due to the use of non-linear least-squares optimization and numerical simulation."
+}
